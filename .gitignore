@@ -1,0 +1,23 @@
+# Datos (pesados y regenerables; documenta su origen en el README)
+data_raw/
+data64/
+data64_aug/
+
+# Checkpoints intermedios y discriminador (solo se conserva el generador final)
+checkpoints/spectral_ep*.pth
+checkpoints/netD_*.pth
+
+# Copias de respaldo
+entrega_final/
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Editor y sistema
+.vscode/
+.DS_Store
+Thumbs.db
