@@ -3,7 +3,7 @@
 **Luis Gonzalez — 23353**  
 **Jonathan Zacarias — 231104**
 
-GAN para conceptos de habitantes de criptas, cavernas y ruinas. La salida nativa es pixel art de 16×16, exportada a 64×64 con NEAREST. El informe de 12 páginas es `presentacion.pdf`; la versión editable es `presentacion_editable.docx`. La galería tiene diez conceptos, nombres, roles, semillas y vectores z. Son resultados experimentales: hay proporciones extrañas y repetición de arquetipos; no afirmamos que se haya demostrado ausencia de sobreajuste ni originalidad semántica completa.
+GAN para conceptos de habitantes de criptas, cavernas y ruinas. La salida nativa es pixel art de 16×16, exportada a 64×64 con NEAREST. El informe entregado en `presentacion.pdf` tiene 14 páginas. `presentacion_editable.docx` conserva la edición anterior de 12 páginas. La galería tiene diez conceptos, nombres, roles, semillas y vectores z. Son resultados experimentales: hay proporciones extrañas y repetición de arquetipos; no afirmamos que se haya demostrado ausencia de sobreajuste ni originalidad semántica completa.
 
 ## Ejecutar sin entrenar
 

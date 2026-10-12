@@ -144,7 +144,6 @@ Usamos Codex y ChatGPT para comprender la GAN, revisar código y optimizadores, 
     nb.cells=cells;nb.metadata={'kernelspec':{'name':'python3','display_name':'Python 3','language':'python'},'language_info':{'name':'python','version':'3.14.6'}}
     if not a.package: nbformat.write(nb,ROOT/'proyecto-2.ipynb')
     if not a.package: print('README y notebook actualizados');return
-    shutil.copy2(ROOT/'output/pdf/presentacion.pdf',ROOT/'presentacion.pdf')
     # Mantener copia de la galeria historica; destino comprobado dentro de este repo.
     historical=ROOT/'historico/galeria_original'; historical.mkdir(parents=True,exist_ok=True)
     galleryroot=ROOT/'galeria'; galleryroot.mkdir(exist_ok=True)
