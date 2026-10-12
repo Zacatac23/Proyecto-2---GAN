@@ -1,0 +1,31 @@
+{
+  "raw_count": 312,
+  "accepted_count": 199,
+  "rejected_count": 113,
+  "duplicates_removed": 0,
+  "group_count": 128,
+  "split_seed": 1729,
+  "validation_group_fraction": 0.2,
+  "train_count": 164,
+  "validation_count": 35,
+  "train_groups": 102,
+  "validation_groups": 26,
+  "augmentation": "original y reflejo horizontal solo en entrenamiento, sin permutar RGB",
+  "preprocessing": "negro, centrado de caja no negra en 16x16, NEAREST a 64x64",
+  "sources": [
+    {
+      "name": "Tiny Dungeon",
+      "author": "Kenney",
+      "license": "CC0",
+      "url": "https://kenney.nl/assets/tiny-dungeon"
+    },
+    {
+      "name": "Tiny Creatures",
+      "author": "Clint Bellanger, con colaboracion de Kenney",
+      "license": "CC0",
+      "url": "https://opengameart.org/content/tiny-creatures"
+    }
+  ],
+  "augmented_train_count": 328,
+  "manifest_sha256": "f6cbe57bb0b1190ced1fc25594af11469134dd929997ef7e82d9f7cafb671db1"
+}

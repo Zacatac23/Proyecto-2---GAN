@@ -1,0 +1,108 @@
+{
+  "model": "base",
+  "epoch": 1500,
+  "checkpoint": "runs/paleta_2000/base/generator_epoch_1500.pt",
+  "checkpoint_sha256": "67363449127eb4976cb21bf89efc4f3cd8249e9d0abb97089cb9d913c91668f9",
+  "candidate_count": 200,
+  "selected_count": 10,
+  "selection_rate": 0.05,
+  "criterion": "Revision visual de 200 candidatos: legibilidad relativa, menor dispersion de pixeles y variedad de forma y color. Persisten deformaciones y repeticion de arquetipos; los vecinos no prueban originalidad semantica.",
+  "generation_device": "cpu",
+  "generation_batch": 1,
+  "selection_scope": "La tasa 10/200 corresponde al conjunto final. Se inspeccionaron ademas rejillas de evaluacion de las tres condiciones y los checkpoints.",
+  "characters": [
+    {
+      "number": 1,
+      "name": "Morvath",
+      "candidate_index": 0,
+      "seed": 1000,
+      "image": "personaje_01.png",
+      "z": "personaje_01_z.pt",
+      "role": "Guardián"
+    },
+    {
+      "number": 2,
+      "name": "Ignis",
+      "candidate_index": 8,
+      "seed": 1008,
+      "image": "personaje_02.png",
+      "z": "personaje_02_z.pt",
+      "role": "Gólem ígneo"
+    },
+    {
+      "number": 3,
+      "name": "Mossgolem",
+      "candidate_index": 20,
+      "seed": 1020,
+      "image": "personaje_03.png",
+      "z": "personaje_03_z.pt",
+      "role": "Bestia de musgo"
+    },
+    {
+      "number": 4,
+      "name": "Glacius",
+      "candidate_index": 26,
+      "seed": 1026,
+      "image": "personaje_04.png",
+      "z": "personaje_04_z.pt",
+      "role": "Anfibio"
+    },
+    {
+      "number": 5,
+      "name": "Kaelen",
+      "candidate_index": 35,
+      "seed": 1035,
+      "image": "personaje_05.png",
+      "z": "personaje_05_z.pt",
+      "role": "Hechicero"
+    },
+    {
+      "number": 6,
+      "name": "Zul Karr",
+      "candidate_index": 70,
+      "seed": 1070,
+      "image": "personaje_06.png",
+      "z": "personaje_06_z.pt",
+      "role": "Vigía"
+    },
+    {
+      "number": 7,
+      "name": "Fungor",
+      "candidate_index": 72,
+      "seed": 1072,
+      "image": "personaje_07.png",
+      "z": "personaje_07_z.pt",
+      "role": "Errante"
+    },
+    {
+      "number": 8,
+      "name": "Brasa",
+      "candidate_index": 17,
+      "seed": 1017,
+      "image": "personaje_08.png",
+      "z": "personaje_08_z.pt",
+      "role": "Elemental"
+    },
+    {
+      "number": 9,
+      "name": "Aveline",
+      "candidate_index": 114,
+      "seed": 1114,
+      "image": "personaje_09.png",
+      "z": "personaje_09_z.pt",
+      "role": "Espíritu"
+    },
+    {
+      "number": 10,
+      "name": "Ursok",
+      "candidate_index": 171,
+      "seed": 1171,
+      "image": "personaje_10.png",
+      "z": "personaje_10_z.pt",
+      "role": "Bestia de cripta"
+    }
+  ],
+  "development_candidate_count": 2400,
+  "development_selection_rate": 0.004166666666666667,
+  "development_count_scope": "Suma de conjuntos evaluados por condicion/checkpoint, no vectores z unicos. Excluye lotes de entrenamiento y sondas periodicas; recalculo CPU del mismo checkpoint no se cuenta dos veces."
+}

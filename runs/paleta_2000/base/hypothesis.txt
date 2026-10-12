@@ -1,0 +1,1 @@
+Control: BCE no saturante, BatchNorm y sin normalizacion espectral.

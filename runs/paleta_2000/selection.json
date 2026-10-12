@@ -1,0 +1,13 @@
+{
+  "stabilization_conclusion": "A época 1500, SN aumenta la diversidad en píxeles de 0.306 a 0.363 frente a Hinge. Sin embargo, varias muestras contienen bloques dispersos y fondos fragmentados. D permanece bajo 0.1 en 1952 de 2000 épocas, frente a 1950 del control. No encontramos evidencia de la mejora de estabilidad prevista; el incremento numérico de diversidad no basta para seleccionar SN.",
+  "training_conclusion": "La paleta evita colores intermedios, pero persisten anatomías ambiguas y repetición de arquetipos, compatibles con pérdida parcial de modos. Reducir la tasa de D bajó la diversidad final Hinge a 0.229; reducir sus canales a 16 la bajó a 0.185. Ninguna exploración justificó reemplazar el control. No interpretamos el error bajo de D como éxito.",
+  "model_choice": "Elegimos BCE, checkpoint 1500, por su mayor variedad relativa de siluetas y combinaciones visuales frente a Hinge y SN en las rejillas revisadas. Las tres redes entrenaron 2000 épocas, pero compararlas a 1500 mantiene el mismo punto de evaluación. Es una selección exploratoria: a 2000 BCE perdió diversidad (0.350 frente a 0.385) y no mejoró su legibilidad. La pérdida baja de D no se usó como criterio de éxito.",
+  "gallery_conclusion": "La curación conserva figuras compactas, otras alargadas y algunas con apéndices laterales. Sus colores y proporciones varían, pero varias pertenecen a arquetipos verdes parecidos y la anatomía sigue siendo ambigua. La menor RMS entre los diez es 0.204; esa separación de píxeles no garantiza diez identidades semánticas distintas. Los resultados son conceptos experimentales, no sprites terminados.",
+  "reflection": "Aveline, personaje 09 (seed 1114), fue el más difícil de defender. Su vecino por ResNet es creatures_0111, con coseno 0.977; por RMS es creatures_0099 reflejado, con distancia 0.240. Conserva un cuerpo verde y apéndices que recuerdan formas del dataset. El parecido y la textura compartida impiden afirmar novedad solo con métricas. Este caso sugiere recombinación de colores y siluetas del universo, con detalles todavía poco legibles, y exige más datos y pruebas para defender una identidad nueva.",
+  "selection_method": "Revision manual de candidatos y vecinos, con analisis de las curvas y ruido fijo. No se afirma ausencia de sobreajuste.",
+  "selected_pairwise_min_rms": 0.20447780191898346,
+  "selected_diversity": 0.36174651980400085,
+  "checkpoint_epoch": 1500,
+  "trained_epochs": 2000,
+  "development_candidate_count": 2400
+}

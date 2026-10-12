@@ -1,0 +1,160 @@
+{
+  "tag": "hinge",
+  "loss": "hinge",
+  "spectral_norm": false,
+  "epochs": 2000,
+  "seed": 42,
+  "latent_dim": 100,
+  "width": 64,
+  "batch_size": 32,
+  "learning_rate": 0.0002,
+  "learning_rate_D": 0.0002,
+  "discriminator_width": 16,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "native_resolution": 16,
+  "export_resolution": 64,
+  "upsampling": "nearest",
+  "palette": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      153,
+      219
+    ],
+    [
+      37,
+      149,
+      106
+    ],
+    [
+      38,
+      43,
+      68
+    ],
+    [
+      63,
+      38,
+      49
+    ],
+    [
+      67,
+      225,
+      179
+    ],
+    [
+      82,
+      96,
+      124
+    ],
+    [
+      105,
+      255,
+      212
+    ],
+    [
+      117,
+      227,
+      255
+    ],
+    [
+      118,
+      59,
+      54
+    ],
+    [
+      139,
+      155,
+      180
+    ],
+    [
+      155,
+      76,
+      163
+    ],
+    [
+      189,
+      108,
+      74
+    ],
+    [
+      192,
+      203,
+      220
+    ],
+    [
+      209,
+      118,
+      208
+    ],
+    [
+      225,
+      154,
+      101
+    ],
+    [
+      232,
+      69,
+      55
+    ],
+    [
+      234,
+      165,
+      108
+    ],
+    [
+      247,
+      194,
+      130
+    ],
+    [
+      254,
+      174,
+      52
+    ],
+    [
+      254,
+      231,
+      97
+    ],
+    [
+      255,
+      112,
+      109
+    ],
+    [
+      255,
+      255,
+      255
+    ]
+  ],
+  "palette_training": "hard argmax con gradiente sustituto softmax",
+  "discriminator_batchnorm": true,
+  "initial_G_sha256": "123e485de492816c7de541de9e13efd94ad929dce658ef0e9a934101b02a9a0c",
+  "initial_D_sha256": "f29a42e5b5c234785a792ecc3cdb454cd66c7cf32887d32d5cb9cf41da0ab87b",
+  "batch_order_seed": "4200 + epoch",
+  "training_noise_seed": "9000 + epoch",
+  "fixed_noise_seed": 123,
+  "evaluation_noise_seed": 777,
+  "bn_calibration_seed": 12345,
+  "bn_calibration_batches": 20,
+  "train_images": 164,
+  "augmented_images": 328,
+  "validation_images": 35,
+  "manifest_sha256": "f6cbe57bb0b1190ced1fc25594af11469134dd929997ef7e82d9f7cafb671db1",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5050",
+  "python": "3.14.6",
+  "torch": "2.13.0+cu130",
+  "generator_parameters": 981760,
+  "discriminator_parameters": 9536,
+  "started_at": "2026-10-11T20:16:19.995610-06:00",
+  "finished_at": "2026-10-11T20:18:29.200811-06:00",
+  "duration_seconds": 129.2045323000002
+}

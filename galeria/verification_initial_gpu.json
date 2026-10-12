@@ -1,0 +1,67 @@
+{
+  "passed": false,
+  "device": "cpu",
+  "tolerance": 0.00784313725490196,
+  "characters": [
+    {
+      "character": 1,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 2,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 3,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 4,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 5,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 6,
+      "max_error": 0.8509804010391235,
+      "z_matches_seed": true,
+      "passed": false
+    },
+    {
+      "character": 7,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 8,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 9,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    },
+    {
+      "character": 10,
+      "max_error": 1.4901161193847656e-08,
+      "z_matches_seed": true,
+      "passed": true
+    }
+  ]
+}

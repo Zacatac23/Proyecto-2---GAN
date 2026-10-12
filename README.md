@@ -1,118 +1,97 @@
-# Proyecto 2: Diseño Generativo de Personajes (GAN Pixel Art)
+# Proyecto 2: Diseño generativo de personajes
 
-**Curso:** Deep Learning (2026) — Universidad del Valle  
-**Catedrático:** Kevin Recinos  
-**Autores:** Jonathan Zacarias, Gilberto González  
-**Fecha de entrega:** 11 de octubre de 2026  
+**Luis Gonzalez — 23353**  
+**Jonathan Zacarias — 231104**
 
----
+GAN para conceptos de habitantes de criptas, cavernas y ruinas. La salida nativa es pixel art de 16×16, exportada a 64×64 con NEAREST. El informe de 12 páginas es `presentacion.pdf`; la versión editable es `presentacion_editable.docx`. La galería tiene diez conceptos, nombres, roles, semillas y vectores z. Son resultados experimentales: hay proporciones extrañas y repetición de arquetipos; no afirmamos que se haya demostrado ausencia de sobreajuste ni originalidad semántica completa.
 
-## 1. Definición del Universo Visual
-El proyecto explora la generación procedural de entidades para un juego de mazmorras (*dungeon crawler*) en estilo **pixel art clásico**. 
+## Ejecutar sin entrenar
 
-* **Estilo y estética:** Sprites de baja resolución ($16\times16$ reescalados a $64\times64$ con interpolación `NEAREST` para conservar bordes definidos de píxel), paleta reducida, contornos exteriores oscuros y fondo plano negro/oscuro.
-* **Ambiente:** Mazmorras subterráneas, criptas y ruinas fantásticas habitadas por aventureros, criaturas místicas, no-muertos y aberraciones arcanas.
-* **Rasgos esperados:** Siluetas centradas, masas redondeadas o antropomorfas, contraste marcado contra el fondo y proporciones compactas.
+Desde la carpeta del proyecto, con Python 3.14 (la ejecución se verificó en 3.14.6):
 
----
-
-## 2. Galería de Personajes (Bonificación de Lore: Nombres y Roles)
-Se generaron **200 candidatos** a partir de vectores de ruido latente generados con semillas deterministas (`1000 + índice`). De estos, se seleccionaron **10 personajes (Tasa de selección: 5% / 10 de 200)** con base en claridad de silueta, postura central, variedad cromática y contraste.
-
-A continuación se detalla la ficha de cada personaje para la bonificación de universo y rol:
-
-| # | Archivo | Nombre | Rol / Clase | Índice | Semilla / Vector $z$ | Descripción y Rasgos en el Universo |
-|---|---|---|---|---|---|---|
-| **01** | `personaje_01.png` | **Morvath el Errante** | Conjurador Sombrío | 4 | `personaje_01_z.pt` (seed 1004) | Mago ermitaño con túnica oscura rasgada y resplandor espectral en el torso. Especialista en maleficios arcanos. |
-| **02** | `personaje_02.png` | **Ignis el Ígneo** | Elemental de Magma | 14 | `personaje_02_z.pt` (seed 1014) | Núcleo de roca volcánica flotante con tonos cálidos y amarillentos. Custodio de las forjas olvidadas. |
-| **03** | `personaje_03.png` | **Grog Rompehuesos** | Guerrero Ogro | 29 | `personaje_03_z.pt` (seed 1029) | Berserker acorazado de complexión ancha y silueta pesada. Vanguardia de asalto en pasadizos estrechos. |
-| **04** | `personaje_04.png` | **Kaelen de la Guardia** | Paladín de Cripta | 45 | `personaje_04_z.pt` (seed 1045) | Campeón cubierto con peto plateado y capa protectora. Guardián de reliquias sagradas subterráneas. |
-| **05** | `personaje_05.png` | **Sombra Menor** | Espectro Rastrero | 64 | `personaje_05_z.pt` (seed 1064) | Entidad no-muerta etérea que se desliza pegada al suelo. Destaca por su alta proporción de tonos oscuros y halo difuso. |
-| **06** | `personaje_06.png` | **Zul'Karr el Fétido** | Brujo Goblin | 104 | `personaje_06_z.pt` (seed 1104) | Chamán de baja estatura con pigmentación verdosa y cayado ritual. Envenena trampas y pasadizos. |
-| **07** | `personaje_07.png` | **Glacius el Frío** | Espíritu de Escarcha | 110 | `personaje_07_z.pt` (seed 1110) | Manifestación elemental gélida de tonalidad celeste pálida. Ralentiza a invasores en las catacumbas congeladas. |
-| **08** | `personaje_08.png` | **Mossgolem** | Bestia del Pantano | 112 | `personaje_08_z.pt` (seed 1112) | Criatura cuadrúpeda / humanoide compacta cubierta de musgo denso. Silueta inspirada en la fauna salvaje de las cloacas. |
-| **09** | `personaje_09.png` | **Aveline del Viento** | Exploradora Pícara | 154 | `personaje_09_z.pt` (seed 1154) | Cazadora ágil con vestidura de cuero ligero y postura ladeada. Detección de trampas y ataques furtivos. |
-| **10** | `personaje_10.png` | **Ursok el Terráneo** | Guardián Bestial | 184 | `personaje_10_z.pt` (seed 1184) | Fiera de pelaje pardo y orejas puntiagudas prominentes. Defensor territorial de las cavernas inferiores. |
-
----
-
-## 3. Datos y Licencias
-* **Fuentes originales:**
-  * *Tiny Dungeon* por Kenney ([opengameart.org/content/tiny-dungeon](https://opengameart.org/content/tiny-dungeon)) — **Licencia: CC0 (Dominio Público)**.
-  * *Tiny Creatures* por Clint Bellanger ([opengameart.org/content/tiny-creatures](https://opengameart.org/content/tiny-creatures)) — **Licencia: CC0 (Dominio Público)**.
-* **Preprocesamiento:**
-  * Extracción de 312 sprites $\rightarrow$ Depuración manual a **200 sprites limpios** de $16\times16$.
-  * Padding simétrico a relación 1:1, reescalado a $64\times64$ con interpolación `NEAREST` para evitar artefactos de interpolación bilineal/bicúbica.
-  * Aumento de datos ($\times 12$): Inversión horizontal ($2\times$) $\times$ 6 permutaciones de canales de color RGB $\rightarrow$ **2,400 imágenes de entrenamiento**.
-
----
-
-## 4. Arquitectura y Experimentos
-
-### 4.1. Configuración Base (DCGAN)
-* **Generador:** Entrada $z \in \mathbb{R}^{100} \rightarrow$ Convoluciones transpuestas (`ConvTranspose2d`) con `BatchNorm2d` y `ReLU` $\rightarrow$ Salida $64\times64\times3$ con `Tanh`.
-* **Discriminador:** `Conv2d` con `LeakyReLU(0.2)` y `BatchNorm2d`, sin Sigmoid final (salida en logits).
-* **Parámetros:** Optimizador Adam ($\text{lr} = 0.0002$, $\beta_1 = 0.5$, $\beta_2 = 0.999$), Batch Size = 64, Épocas = 60.
-
-### 4.2. Experimento de Función de Pérdida (BCE vs. Hinge)
-* **Hipótesis:** Hinge loss evitará gradientes saturados al no penalizar al discriminador una vez supera el margen establecido, otorgando al generador un gradiente más suave y previniendo colapsos.
-* **Resultado:** Hinge estabilizó la varianza de $G$, pero $D$ saturó con pérdidas cercanas a cero entre las épocas 30 y 55. Diversidad media: 0.333 vs 0.331 (BCE). Modelo final adoptado: **Hinge** (`netG_hinge.pth`).
-
-### 4.3. Experimento de Estabilización (Spectral Normalization)
-* **Hipótesis:** Limitar la constante de Lipschitz del discriminador mediante normalización espectral prevendría su dominancia temprana sin depender de las estadísticas de lote.
-* **Resultado / Limitación metodológica:** Las curvas de pérdida mostraron un equilibrio teórico perfecto, pero las muestras generadas resultaron oscuras y de menor diversidad (0.268). Al implementar `spectral_norm` se retiró `BatchNorm2d`, modificando dos variables simultáneamente.
-
----
-
-## 5. Instrucciones de Reproducción y Regenerabilidad
-
-### 5.1. Requisitos de Entorno
-* Python 3.10+
-* PyTorch $\ge$ 2.0.0
-* Torchvision $\ge$ 0.15.0
-* Pillow, NumPy, Matplotlib, SciPy
-
-Instalación de dependencias:
-```bash
-pip install torch torchvision numpy pillow matplotlib scipy
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python generar.py --verificar
+python generar.py --seed 2026 --cantidad 16
+python verify_project.py
 ```
 
-### 5.2. Semillas Utilizadas
-* Semilla global de entrenamiento: `42`
-* Semilla de ruido fijo para monitoreo (16 vectores): `123` (`checkpoints/fixed_noise.pt`)
-* Semillas de candidatos de galería: `1000 + i` para $i \in [0, 199]$
+La CPU basta para regenerar la galería. Las imágenes nuevas se guardan en `output_eval/nuevos/`. Cada semilla produce un z normal de tamaño 1×100×1×1; cambiar la semilla no entrena la red. `--verificar` comprueba pesos, diez PNG y z frente a sus semillas. Tolerancia de imagen: 2/255; el informe contiene el error real. La ejecución con nuevos números puede producir fallos visuales que la curación de diez ejemplos no muestra.
 
-### 5.3. Regenerar la Galería Exacta
-Para regenerar los 10 personajes idénticos a los entregados en `galeria/`, ejecute la celda final del notebook `proyecto-2.ipynb` o el script de verificación. El generador cargará los pesos de `checkpoints/netG_hinge.pth` y aplicará `recalibrate_bn`:
+Para GPU NVIDIA compatible, instalamos los paquetes CUDA oficiales después de las demás dependencias:
 
-```python
-import torch
-from torchvision.utils import save_image
-
-# Cargar generador y recalibrar estadísticas de BatchNorm
-netG = Generator().to(device)
-netG.load_state_dict(torch.load("checkpoints/netG_hinge.pth", map_location=device))
-recalibrate_bn(netG, device=device)
-netG.eval()
-
-# Cargar vector latente y generar
-z = torch.load("galeria/personaje_01_z.pt", map_location=device)
-with torch.no_grad():
-    img_regen = netG(z)
-save_image(img_regen * 0.5 + 0.5, "galeria/personaje_01_regenerado.png")
+```powershell
+python -m pip install torch==2.13.0+cu130 torchvision==0.28.0+cu130 --index-url https://download.pytorch.org/whl/cu130
 ```
-*Diferencia absoluta máxima verificada frente a la entrega: $\le 0.00196$ (asociada exclusivamente al redondeo entero de 8 bits en PNG).*
 
----
+Hardware usado: NVIDIA GeForce RTX 5050, con 8 GB de VRAM. La CPU fue Intel Core i5-12400F. Las corridas completas y sus tiempos reales aparecen en los JSON. Diferentes dispositivos o versiones pueden introducir diferencias numéricas; las semillas no garantizan resultados idénticos entre todo hardware.
 
-## 6. Enlace a Pesos del Modelo
-Los pesos del generador final están almacenados localmente en el repositorio:
-* Ruta: `checkpoints/netG_hinge.pth` (Tamaño aproximado: ~14 MB, apto para entrega directa en Canvas).
-* *Enlace de respaldo en la nube:* `[Insertar enlace de Google Drive / OneDrive si Canvas restringe tamaño]`
+## Datos y fuentes
 
----
+El paquete contiene los 312 PNG originales: 132 Tiny Dungeon (Kenney) y 180 Tiny Creatures (Clint Bellanger con colaboración de Kenney), ambas fuentes CC0. [Tiny Dungeon](https://kenney.nl/assets/tiny-dungeon), [Tiny Creatures](https://opengameart.org/content/tiny-creatures).
 
-## 7. Declaración de Asistentes de IA
-En cumplimiento con la **Sección 8** del enunciado:
-* Se utilizaron modelos de asistencia de IA (LLMs) como apoyo para la estructuración de la rutina de interpolación/recalibración de `BatchNorm`, refinamiento de funciones de cálculo de métricas de distancia (RMS y similitud coseno con ResNet-18) y redacción técnica de la memoria del proyecto.
-* **Verificación de autenticidad:** Todo el código fue ejecutado y validado en nuestro entorno local. **Ninguna imagen de la galería ni de los experimentos proviene de herramientas de generación externa (Midjourney, DALL-E, Stable Diffusion, etc.)**; todas fueron sintetizadas de manera estricta por el modelo DCGAN entrenado por el equipo.
+`prepare_data.py` revisa una lista explícita de personajes/criaturas, excluye objetos y una mano aislada, compone sobre negro, centra y escala con NEAREST. El manifiesto documenta las 312 decisiones y hashes originales. Conservamos 199 sprites: 164 de entrenamiento y 35 de validación. Variantes conocidas y siluetas iguales/reflejadas se agrupan antes de dividir (128 familias; 102/26). Solo entrenamiento recibe reflexión horizontal: 328 ejemplos. No usamos permutaciones RGB. Los 23 colores de la paleta se extraen exclusivamente de entrenamiento.
+
+```powershell
+python prepare_data.py
+```
+
+La preparación no requiere descargar el ZIP, porque `data_raw/` viene incluido. La agrupación manual puede omitir parentescos visuales. Validación se usa para seleccionar: no es un conjunto independiente de prueba.
+
+## Entrenamiento y experimentos
+
+`gan_pipeline.py` contiene Generator, Discriminator, alternancia Adam, BCE no saturante, Hinge y spectral_norm. El generador clasifica colores con argmax y utiliza un gradiente sustituto softmax durante entrenamiento. Las imágenes no provienen de un generador externo. La normalización espectral conserva BatchNorm para aislar su efecto.
+
+La corrida seleccionada está en `runs/paleta_2000/`: 2000 épocas por condición, con checkpoint seleccionado en la época 1500, lote 32, tasa G=0.0002, tasa D=0.0002, betas (0.5,0.999). Comparamos BCE→Hinge cambiando la pérdida y Hinge→Hinge+SN cambiando solo spectral_norm. La inicialización, datos, ruido y condiciones restantes coinciden. `hypothesis.txt` se escribe antes del bucle de entrenamiento; `protocolo.md` registra las decisiones previas y exploraciones que no mejoraron.
+
+Para repetir desde cero use una carpeta nueva, evitando sobrescribir resultados:
+
+```powershell
+python gan_pipeline.py train --tag base --epochs 2000 --run runs/reproduccion --palette --lr-d 0.0002
+python gan_pipeline.py train --tag hinge --epochs 2000 --run runs/reproduccion --palette --lr-d 0.0002
+python gan_pipeline.py train --tag hinge_sn --epochs 2000 --run runs/reproduccion --palette --lr-d 0.0002
+python gan_pipeline.py evaluate --tag base --epoch 1500 --run runs/reproduccion --cpu
+python gan_pipeline.py evaluate --tag hinge --epoch 1500 --run runs/reproduccion --cpu
+python gan_pipeline.py evaluate --tag hinge_sn --epoch 1500 --run runs/reproduccion --cpu
+python gan_pipeline.py export --tag base --epoch 1500 --run runs/reproduccion --indices 0 8 20 26 35 70 72 17 114 171
+```
+
+La evaluación CNN descarga una vez los pesos ImageNet oficiales de ResNet-18, si no están en caché. Usa entrada 224×224, características 512 y similitud coseno; RMS usa píxeles nativos. Se comparan contra los 164 originales y sus reflejos (328 referencias), y por separado contra 35 originales de validación. Estos indicadores tienen sesgos y no prueban que toda muestra sea nueva. Los checkpoints entregados contienen G y sus estadísticas de BatchNorm recalibradas, suficientes para inferencia; no incluyen D/estado Adam para reanudar entrenamiento. La reproducción del entrenamiento parte desde cero.
+
+## Semillas y selección
+
+Separación 1729; inicialización 42; orden de lotes 4200+época; ruido de entrenamiento 9000+época; ruido fijo 123 (16 vectores); sondas periódicas 777 (128); calibración BN 12345 (20 lotes de 128); candidatos 1000+índice (200 por condición). Cada personaje seleccionado conserva su z y semilla. El modelo final es **base**, época **1500**. Selección final 10/200 = **5%**. En todo el desarrollo se evaluaron 2400 candidatos con distintos modelos/checkpoints: 10/2400 = **0.42%**. Se repiten semillas entre condiciones; además se inspeccionaron rejillas fijas. Esas cifras excluyen los lotes usados para aprender y las sondas periódicas.
+
+La exportación canónica usa CPU, lote de inferencia 1. Al cambiar dispositivo o tamaño de lote, argmax puede elegir otro color en un píxel cercano a un empate. Una primera verificación desde GPU falló por ese motivo; su registro está conservado. Recalculamos candidatos y vecinos en CPU y la verificación final de las diez imágenes pasó. `generar.py` también usa CPU y lote 1.
+
+`galeria/manifest.json` contiene nombres, roles, índices y SHA-256 del checkpoint. Una copia idéntica en `runs/paleta_2000/galeria/` mantiene las rutas del pipeline. Los PNG evaluados son `personaje_01.png` a `personaje_10.png`; los mosaicos son únicamente figuras auxiliares.
+
+## Archivos principales
+
+- `proyecto-2.ipynb`: explicación, protocolo, ejecución opcional de experimentos, resultados reales y regeneración.
+- `prepare_data.py`, `dataset/`: selección, familias, separación y paleta.
+- `gan_pipeline.py`: redes, entrenamiento, evaluación y exportación.
+- `generar.py`: inferencia y verificación de la galería.
+- `verify_project.py`: integridad de datos y controles experimentales.
+- `runs/paleta_2000/`: configuraciones, historiales, hipótesis, pesos, evaluaciones y figuras.
+- `protocolo.md`: decisiones previas y límites de los experimentos.
+- `build_figures.py`, `build_report.py`: construcción del informe desde evidencia real.
+
+Para reconstruir el PDF se requieren ReportLab y Arial instalado; en Windows:
+
+```powershell
+python -m pip install -r requirements-report.txt
+python build_figures.py --run runs/paleta_2000 --epoch 1500
+python build_report.py --run runs/paleta_2000 --epoch 1500
+python build_docx.py --run runs/paleta_2000 --epoch 1500
+```
+
+Se incluyen historiales y rejillas de las etapas exploratorias, sin todos sus pesos intermedios para reducir el tamaño de entrega. El repositorio local conserva además los originales históricos. Los pesos finales de las tres condiciones y los checkpoints usados por la figura de evolución sí están en el ZIP.
+
+## Versiones verificadas y asistentes de IA
+
+Python 3.14.6; PyTorch 2.13.0+cu130; torchvision 0.28.0+cu130; NumPy 2.5.1; Pillow 11.3.0; Matplotlib 3.11.1; scikit-learn 1.9.0; SciPy 1.18.0; JupyterLab 4.6.1. El PDF se construyó con el runtime de documentos en Python 3.12.14; no interviene en el entrenamiento. Las versiones exactas se registran en `requirements.txt` y `environment.json`.
+
+Usamos Codex y ChatGPT para comprender la GAN, revisar código y optimizadores, investigar fuentes, curar y agrupar datos, ejecutar experimentos y verificaciones, y redactar/maquetar el informe. El equipo debe comprender el código y defender los resultados. La IA no creó imágenes de la galería mediante un servicio externo.

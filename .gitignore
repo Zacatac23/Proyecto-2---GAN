@@ -1,5 +1,4 @@
-# Datos (pesados y regenerables; documenta su origen en el README)
-data_raw/
+# Datos aumentados regenerables; los originales CC0 se versionan
 data64/
 data64_aug/
 
@@ -9,6 +8,20 @@ checkpoints/netD_*.pth
 
 # Copias de respaldo
 entrega_final/
+tmp/
+output/
+output_eval/demo/
+
+# Conservar evidencia y checkpoints necesarios para reproducir la entrega
+runs/**/*.pt
+!runs/paleta_2000/**/fixed_noise.pt
+!runs/paleta_2000/**/generator_epoch_1500.pt
+!runs/paleta_2000/**/candidates_epoch_1500.pt
+!runs/paleta_2000/**/neighbors_epoch_1500.pt
+!runs/paleta_2000/base/generator_epoch_0001.pt
+!runs/paleta_2000/base/generator_epoch_0100.pt
+!runs/paleta_2000/base/generator_epoch_0500.pt
+!runs/paleta_2000/galeria/*.pt
 
 # Python / Jupyter
 __pycache__/

@@ -1,0 +1,65 @@
+{
+  "candidate_count": 2400,
+  "sets": [
+    {
+      "path": "runs/defendible/base/evaluation_epoch_0300.json",
+      "samples": 200,
+      "epoch": 300
+    },
+    {
+      "path": "runs/defendible/hinge/evaluation_epoch_0300.json",
+      "samples": 200,
+      "epoch": 300
+    },
+    {
+      "path": "runs/defendible/hinge_sn/evaluation_epoch_0300.json",
+      "samples": 200,
+      "epoch": 300
+    },
+    {
+      "path": "runs/defendible_1500/base/evaluation_epoch_1500.json",
+      "samples": 200,
+      "epoch": 1500
+    },
+    {
+      "path": "runs/paleta_2000/base/evaluation_epoch_1500.json",
+      "samples": 200,
+      "epoch": 1500
+    },
+    {
+      "path": "runs/paleta_2000/base/evaluation_epoch_2000.json",
+      "samples": 200,
+      "epoch": 2000
+    },
+    {
+      "path": "runs/paleta_2000/hinge/evaluation_epoch_1500.json",
+      "samples": 200,
+      "epoch": 1500
+    },
+    {
+      "path": "runs/paleta_2000/hinge/evaluation_epoch_2000.json",
+      "samples": 200,
+      "epoch": 2000
+    },
+    {
+      "path": "runs/paleta_2000/hinge_sn/evaluation_epoch_1500.json",
+      "samples": 200,
+      "epoch": 1500
+    },
+    {
+      "path": "runs/paleta_2000/hinge_sn/evaluation_epoch_2000.json",
+      "samples": 200,
+      "epoch": 2000
+    },
+    {
+      "path": "runs/paleta_D16/hinge/evaluation_epoch_2000.json",
+      "samples": 200,
+      "epoch": 2000
+    },
+    {
+      "path": "runs/paleta_tasa_D/hinge/evaluation_epoch_2000.json",
+      "samples": 200,
+      "epoch": 2000
+    }
+  ]
+}

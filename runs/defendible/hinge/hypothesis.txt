@@ -1,0 +1,1 @@
+Creemos que Hinge mejorara la estabilidad porque utiliza un margen en D y una perdida lineal en G. Lo consideraremos util si preserva diversidad y produce siluetas mas claras con el mismo ruido fijo, sin aumentar similitud excesiva con entrenamiento.

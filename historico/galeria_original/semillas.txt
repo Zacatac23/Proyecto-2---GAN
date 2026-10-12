@@ -1,0 +1,10 @@
+personaje_01	indice=4	seed=1004
+personaje_02	indice=14	seed=1014
+personaje_03	indice=29	seed=1029
+personaje_04	indice=45	seed=1045
+personaje_05	indice=64	seed=1064
+personaje_06	indice=104	seed=1104
+personaje_07	indice=110	seed=1110
+personaje_08	indice=112	seed=1112
+personaje_09	indice=154	seed=1154
+personaje_10	indice=184	seed=1184

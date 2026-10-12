@@ -1,0 +1,1 @@
+Creemos que normalizacion espectral mejorara porque limita la amplificacion de cada convolucion de D. Lo consideraremos util si mejora las muestras y evita dominancia prolongada de D frente al control Hinge. Conservamos BatchNorm y todos los demas factores.
